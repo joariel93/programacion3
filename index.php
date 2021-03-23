@@ -31,20 +31,42 @@ VoltearString($test);
 echo $separacion;
 echo "Aplicacion 13"."<br/>";
 $retorno = 0;
-$palabra = "Parcial";
+$palabra = "cualquiera";
 $max = 13;
 function ValidarPalabra($laPalabra, $maximo){
     if (strlen($laPalabra)<=$maximo) {
-        switch($laPalabra){
-            case "Recuperatorio":
-            case "Parcial":
-            case "Programacion": 
-                $retorno = 1;
-                break;
+        if(strcmp($laPalabra,"Parcial")>0||strcmp($laPalabra,"Recuperatorio")>0||strcmp($laPalabra,"Programacion")>0){
+            return 1;
+        }
+        else{
+            return 0;
         }
     }
 }
-ValidarPalabra($palabra,$max);
-echo "El retorno ".$retorno;
+$retorno = ValidarPalabra($palabra,$max);
+echo "El retorno ".$retorno."<br/>";
+echo $separacion;
+echo "Aplicacion 14"."<br/>";
 
+function esPar($elNumero){
+    if($elNumero%2==0){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function esImpar($elNumero){
+    return !(esPar($elNumero));
+}
+
+$numeroPar = 4;
+$numeroImpar = 5;
+
+echo "Numero: ".$numeroPar."<br/>";
+echo "Es par: ".esPar($numeroPar)."<br/>";
+echo "Es impar: ".esImpar($numeroPar)."<br/>";
+echo "Numero: ".$numeroImpar."<br/>";
+echo "Es par: ".esPar($numeroImpar)."<br/>";
+echo "Es impar: ".esImpar($numeroImpar)."<br/>";
 ?>
